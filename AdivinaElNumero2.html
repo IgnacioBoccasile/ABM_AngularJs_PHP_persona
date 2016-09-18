@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Adivina el Numero (v 2.0)</title>
+
+		<!--Estilos-->
+		<link rel="stylesheet" type="text/css" href="estilos/estilo.css">
+		<link rel="stylesheet" type="text/css" href="estilos/animacion.css">
+		<!--final de Estilos-->
+
+		<!--Lógica-Programación-->
+		<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
+        <!--Final de Lógica-Programación -->
+		
+
+		</head>
+	<body ng-app="AngularABMBoccasile" ng-controller="controlAdivinaElNumero2">
+		<div class="CajaUno animated bounceInDown">
+			
+		
+			<form id="FormIngreso">
+
+				<input type="text"  placeholder="Ingrese número" id="numero">
+				
+				<br>
+				<input type="text"  placeholder="intentos" readonly id="intentos">
+			</form>
+			
+		</div>
+		<div class="CajaUno animated bounceInLeft">
+			
+		<button style="height:5em;" class="MiBotonUTN"  ng-click="verificar()" >Verificar</button>
+			
+			<button  class="MiBotonUTN" ng-click="comenzar()" >Comenzar</button>
+
+		</div>
+
+			<h2>&nbspEnunciado:</h2>
+			
+				<h3>
+					&nbspEn esta oportunidad el juego evaluará tus aptitudes a partir de la cantidad de intentos, por lo cual se informará lo 
+					&nbspsiguiente:
+					<br>	&nbsp1° intento: “usted es un Psíquico”.
+					<br>	&nbsp2° intento: “excelente percepción”.
+					<br>	&nbsp3° intento: “Esto es suerte”.
+					<br>	&nbsp4° intento: “Excelente técnica”.
+					<br>	&nbsp5° intento: “usted está en la media”.
+					<br>	&nbspDesde  6 Intentos hasta 10:”falta técnica”
+					<br>	&nbspMás de 10 intentos: “afortunado en el amor!!”.
+
+
+			</div>	</h3>
+
+	</body>
+</html>

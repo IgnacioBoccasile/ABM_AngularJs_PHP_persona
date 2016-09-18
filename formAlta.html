@@ -41,26 +41,80 @@
 		         		<span class="glyphicon glyphicon-th" >&nbsp;</span>
 		         			Grilla</a>
 		         		</li>
-		        	<span id="tituloBarra"  class="animated bounceInRight">{{DatoTest}}ABM - PHP - Angular Versión 1.0.1 &nbsp;&nbsp;&nbsp;</span>
+		        	<span id="tituloBarra"  class="animated bounceInRight">ABM - PHP - Angular Versión 1.0.1 &nbsp;&nbsp;&nbsp;</span>
       </ul>
 		
 
 	<div class="container">
 		<div class="page-header">
-			<center> <h1>Datos {{DatoTest}}</h1>   </center>     
+			<center> <h1>Datos</h1>   </center>     
 		</div>
 		<div class="CajaInicio animated bounceInRight">
-			<h1> <!--?php echo $titulo; ?-->titulo </h1>
+			<h1>Ingreso de Datos</h1>
 
-			<form id="FormIngreso"  enctype="multipart/form-data" >
-				<input type="text" name="apellido" ng-model="persona.apellido" placeholder="ingrese apellido" value="" />
-				<span id="lblApellido" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*
-				</span>
-				<input type="text" name="nombre" ng-model="persona.nombre" placeholder="ingrese nombre" value="" /> <span id="lblNombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
-				<input type="text" name="dni" ng-model="persona.dni" placeholder="ingrese dni" value=""     /> 
-				<span id="lblDni" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
-				<p style='color: black;'>*El DNI no se puede modificar.</p> ": "" ; ?>
+			<form id="FormIngreso" name="FormIngreso" enctype="multipart/form-data" novalidate>
+			
+				<label for="apellido">Apellido: </label>
+				<input type="text" name="apellido" ng-model="persona.apellido" value="" required/><span ng-show=""></span><br>
 				
+				<label for="nombre">Nombre:</label>
+				<input type="text" name="nombre" ng-model="persona.nombre" value="" required/><br>
+				
+				<label for="edad">Edad:</label>
+				<input type="number" name="edad" ng-model="persona.edad" value="" required/><br>
+				
+				<label for="sexo">Sexo:</label>
+				<ul>
+					<li><label for="sexo_m">Masculino</label> <input type="radio" id="sexo_m" name="sexo" value="masculino"/></li>
+					<li><label for="sexo_f">Femenino</label> <input type="radio" id="sexo_f" name="sexo" value="femenino"/></li>
+				</ul><br>
+				
+				<label for="dni">DNI:</label>
+				<input type="text" name="dni" ng-model="persona.dni" value="" required/><br>
+				
+				<label for="email">Email:</label>
+				<input type="email" name="email" ng-model="persona.email" value="" required/><br>
+				
+				<label for="estado_civil">Estado civil:</label>
+				<select name="estado_civil">
+				    <option value=""></option>
+				
+					<option value="soltero/a">Soltero/a</option>
+					
+					<option value="casado/a">Casado/a</option>
+					
+					<option value="viudo/a">Soltero/a</option>
+					
+					<option value="divorciado/a">Divorciado/a</option>
+				</select><br><br>
+				
+				<label for="fecha_de_nacimiento">Fecha de Nacimiento:</label>
+				<input type="date" name="fecha_de_nacimiento" ng-model="persona_fecha_de_nacimiento" value="" required/><br>
+				
+				<label for="clave">Clave:</label>
+				<input type="password" name="clave" ng-model="persona.clave" value="" required/><br>
+				
+				<label for="copia_de_clave">Repita Clave:</label>
+				<input type="password" name="copia_de_clave" ng-model="persona.copia_de_clave" value="" required/><br>
+				
+                <label for="lenguaje_de_programacion">Experimentado en el/los Lenguajes de Programación:</label>
+				<ul>
+					<label for="lenguaje_de_programacion_javascript">JavaScript</label>
+					<input type="checkbox" id="lenguaje_de_programacion_javascript" name="lenguaje_de_programacion[]" ng-model="persona.lenguajeJs" value="JavaScript" /><br>
+					
+					<label for="lenguaje_de_programacion_c">C</label>
+					<input type="checkbox" id="lenguaje_de_programacion_c" name="lenguaje_de_programacion[]" ng-model="persona.lenguajeC" value="C" /><br>
+					
+					<label for="lenguaje_de_programacion_csharp">C#</label>
+					<input type="checkbox" id="lenguaje_de_programacion_csharp" name="lenguaje_de_programacion[]" ng-model="persona.lenguajeCSharp" value="C#" /><br>
+					
+					<label for="lenguaje_de_programacion_php">PHP</label>
+					<input type="checkbox" id="lenguaje_de_programacion_php" name="lenguaje_de_programacion[]" ng-model="persona.lenguajePhp" value="PHP" /><br>
+					
+					<label for="lenguaje_de_programacion_html">HTML</label>
+					<input type="checkbox" id="lenguaje_de_programacion_html" name="lenguaje_de_programacion[]" ng-model="persona.lenguajeHtml" value="HTML" />
+				</ul><br>
+
 				<input type="hidden" name="idOculto" id="id" value="" />
 				<!--
 				<input type="file" name="foto" />
@@ -70,8 +124,9 @@
 				<p style="  color: black;">*La foto se actualiza al guardar.</p>
 				-->
 
-				<a class="btn btn-info " name="guardar" ng-click="Guardar()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
-					
+				<a class="btn btn-info " name="guardar" ng-click="Guardar()" ng-disabled="FormIngreso.$invalid" ng-if="persona.clave==persona.copia_de_clave"><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar Datos</a>
+								<label ng-disabled="FormIngreso.$invalid">Dato/s obligatorio/s no ingresado/s!!</label>
+
 				<input type="hidden" value="" id="idParaModificar" name="agregar" />
 				<input type="hidden" value="" id="hdnAgregar" name="agregar" />
 				</div>

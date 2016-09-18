@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Adivina el Numero (v 1.0)</title>
+
+		<!--Estilos-->
+		<link rel="stylesheet" type="text/css" href="estilos/estilo.css">
+		<link rel="stylesheet" type="text/css" href="estilos/animacion.css">
+		<!--final de Estilos-->
+
+		<!--Lógica-Programación-->
+		<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
+        <!--Final de Lógica-Programación -->
+
+		</head>
+	<body ng-app="AngularABMBoccasile" ng-controller="controlAdivinaElNumero1">
+		<div class="CajaUno animated bounceInDown">
+			
+		
+			<form id="FormIngreso">
+
+				<input type="text"  placeholder="Ingrese número" id="numero">
+				
+				<br>
+				<input type="text"  placeholder="intentos" readonly id="intentos">
+			</form>
+			
+		</div>
+		<div class="CajaUno animated bounceInLeft">
+			
+		<button style="height:5em;"  class="MiBotonUTN"  ng-click="verificar()" >Verificar</button>
+			
+			<button  class="MiBotonUTN" ng-click="comenzar()" >Comenzar</button>
+
+		</div>
+
+			
+			<h2>&nbspEnunciado:</h2>
+			
+	
+				<h3>
+					&nbspAl comenzar el juego generamos un número secreto del 1 al 100, en la pantalla del juego dispondremos de un cuadro &nbspde 
+					texto para ingresar un número y un botón “Verificar”, si el número ingresado es el mismo que el número secreto se &nbspdará por terminado el juego con un mensaje similar a este: 
+					<br>&nbsp“Usted es un ganador!!! y en solo X intentos”.
+					De no ser igual se debe informar si necesita 
+					“Mas!!”  para llegar al &nbspnúmero secreto  o si necesita 
+					“Menos!!”  para obtener el número secreto.
+			
+
+
+
+			
+		</div>	</h3>
+			
+	</body>
+</html>
